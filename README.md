@@ -2,6 +2,6 @@
 
 ## Team Members
 
--Jacob Burke
--Liam Brozik
--Angela Li
+* Jacob Burke
+* Liam Brozik
+* Angela Li
