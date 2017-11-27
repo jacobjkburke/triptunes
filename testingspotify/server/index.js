@@ -10,52 +10,43 @@ app.use((req, res, next) => {
     next();
 });
 
-// // These are my test client_credentials,
-// // replace with your own key/secret
-// var TWITTER_KEY = 'jndUEH1V9eJ9TBee9QAjz2KIA';
-// var TWITTER_SECRET = 'FhX6suZqaPIragVdSqfIwarNBGnRlzxRmbsV1Px5zTZ7grM9Rl';
 
-// // Exposes an endpoint that your app can call to make API requests to twitter
-// app.get('/api/twitter', function (req, res) {
-//     var search = req.query.q;
 
-//     // First, make a post request to generate an access token,
-//     // which is required to make further API requests.
-//     request.post({
-//         url: 'https://api.twitter.com/oauth2/token',
-//         form: {
-//             grant_type: 'client_credentials'
-//         },
-//         auth: {
-//             username: TWITTER_KEY,
-//             password: TWITTER_SECRET,
-//             sendImmediately: true
-//         },
-//         json: true
-//     }, function (authErr, authResponse, authJSON) {
-//         // Once we have a token, add it to each API request we want to make.
-//         request.get({
-//             url: 'https://api.twitter.com/1.1/search/tweets.json?q=' + search,
-//             auth: {
-//                 bearer: authJSON.access_token
-//             },
-//             json: true
-//         }, function (searchErr, searchResponse, searchBody) {
-//             res.json(searchBody);
-//         });
-//     });
-// });
+
+// Google Maps API
+
+var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
+var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=Seattle&destinations=San+Francisco&mode=bicycling&language=fr-FR&key=' + gmapskey;
+
+
+app.get('/api/google', function (req, res) {
+    request.get({
+        url: url,
+        json: true
+    }, function (err, response, body) {
+        res.json(body);
+        
+    });
+});
+
+
+
+
+// Spotify API
 
 // These are my test client_credentials,
 // replace with your own id/secret
-var SPOTIFY_ID = '6caad84a95784bd4bc074cad1f206774';
-var SPOTIFY_SECRET = 'ea63300480cd47adbc64fb501b7c11ae';
+var SPOTIFY_ID = '5cb9c36d867a4d479af678d8c130103c';
+var SPOTIFY_SECRET = '47bede1c209c4170b08eeb108bfe14c9';
+
 
 app.get('/api/spotify', function (req, res) {
     var search = req.query.q;
 
     // Uses client credentials flow
     // See: https://developer.spotify.com/web-api/authorization-guide/#client-credentials-flow
+    // POST https://api.spotify.com/v1/users/{user_id}/playlists --> to create a playlist
+    // POST https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks --> to add tracks to the playlist
     request.post({
         url: 'https://accounts.spotify.com/api/token',
         auth: {
@@ -76,9 +67,12 @@ app.get('/api/spotify', function (req, res) {
             json: true
         }, function (searchErr, searchResponse, searchBody) {
             res.json(searchBody);
+            
         });
     });
 });
+
+
 
 app.use(express.static('public'));
 
