@@ -6,18 +6,28 @@ var PORT = process.env.PORT || 3000;
 
 app.use((req, res, next) => {
     console.log(new Date().getTime(), req.url);
-
     next();
 });
 
 
+// var form = document.getElementById("login-form");
+// var start = document.getElementById("start");
+// var end = document.getElementById("destination");
+// var mode = "";
 
+// if (document.getElementById('option-1').checked) {
+//   mode = document.getElementById('option-1').value;
+// } else if (document.getElementById('option-2').checked) {
+//   mode = document.getElementById('option-2').value;
+// } else {
+//   mode = document.getElementById('option-3').value;
+// }
 
 // Google Maps API
 
 var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
-var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=Seattle&destinations=San+Francisco&mode=bicycling&language=fr-FR&key=' + gmapskey;
-
+var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?';
+// var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + start.value + "&destinations=" + end.value + "&mode=" + mode + "&language=fr-FR&key=' + gmapskey;
 
 app.get('/api/google', function (req, res) {
     request.get({
@@ -28,7 +38,6 @@ app.get('/api/google', function (req, res) {
         
     });
 });
-
 
 
 
