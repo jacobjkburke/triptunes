@@ -18,3 +18,5 @@ function stopFunction() {
 function homeFunction() {
     window.location.href = 'index.html';
 }
+
+
