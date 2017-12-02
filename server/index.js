@@ -47,7 +47,7 @@ app.get('/authorize', function (req, res) {
             sendImmediately: true
         },
         form: {
-            grant_type: 'client_credentials',
+            grant_type: 'authorization_code',
             code: code,
             redirect_uri: 'http://localhost:3000/authorize'
         },
@@ -63,7 +63,10 @@ app.get('/authorize', function (req, res) {
 app.get('/api/userinfo', function (req, res) {
     var token = req.query.access_token;
     request.get({
-        url: 'https://api.spotify.com/v1/me?access_token=' + token,
+        url: 'https://api.spotify.com/v1/me',
+        auth: {
+            bearer: token
+        },
         json: true
     }, function (searchErr, searchResponse, searchBody) {
         res.json(searchBody);       
@@ -76,9 +79,18 @@ app.get('/api/userinfo', function (req, res) {
 // get playlist_id and user_id 
 app.get('/api/create-playlist', function (req, res) {
     var token = req.query.access_token;
+    var id = req.query.id;
     request.post({
-        url: 'https://api.spotify.com/v1/users/{user_id}/playlists?access_token=' + token,
-        json: true
+        url: 'https://api.spotify.com/v1/users/' + id + '/playlists',
+        body: JSON.stringify({
+            'name': "info343",
+            'public': false
+        }),
+        dataType:'json',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json',
+        }
     }, function (searchErr, searchResponse, searchBody) {
         res.json(searchBody);       
     });
@@ -92,11 +104,13 @@ app.get('/api/spotify', function (req, res) {
     var search = req.query.q;  
     var token = req.query.access_token;
     request.get({
-        url: 'https://api.spotify.com/v1/search?type=track&query=' + search + "&access_token=" + token,
+        url: 'https://api.spotify.com/v1/search?type=track&query=' + search,
+        auth: {
+            bearer: token
+        },
         json: true
     }, function (searchErr, searchResponse, searchBody) {
-        res.json(searchBody);
-        
+        res.json(searchBody);   
     });
 });
 
@@ -104,14 +118,23 @@ app.get('/api/spotify', function (req, res) {
 
 // STEP 5: ADD SONGS TO PLAYLIST
 // POST https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks --> to add tracks to the playlist
-app.get('/api/add-songs', function (req, res) {
+app.get('/api/addsongs', function (req, res) {
     var token = req.query.access_token; 
+    var playlistid = req.query.playlistid;
+    var userid = req.query.id;
+    var uris = req.query.uris;
     request.post({
-        url: 'https://api.spotify.com/v1/users/22io25vojp2n2t5rdraf4f4kq/playlists/{playlist_id}/tracks?access_token=' + token,
-        json: true
+        url: 'https://api.spotify.com/v1/users/' + userid + '/playlists/' + playlistid + '/tracks',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json',  
+        },
+        body: JSON.stringify({
+            'uris': [uris]
+        }),
+        dataType:'json'
     }, function (searchErr, searchResponse, searchBody) {
-        res.json(searchBody);
-        
+        res.json(searchBody); 
     });
 });
 
