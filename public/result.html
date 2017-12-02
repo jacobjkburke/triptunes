@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Spotify Road App</title>
+    <title>Trip Tunes</title>
     <link rel="stylesheet" href="css/result.css" type="text/css">
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
 
@@ -13,17 +13,13 @@
     <div class="container">
         <div class='col col-sm-6'>
             <div class="header">
-                <h2>Spotify Name of App</h2>
+                <h2>Trip Tunes</h2>
                 <p>Best tagline that makes our webpage look desirable</p>
-                <form id="spotify-form">
-                    <input id="spotify-input" />
-                    <button type="submit">Search Spotify</button>
-                </form><br />
             </div>
             <div class="buttons"> 
                 <div class="home-button">
-                    <button class='btn btn-primary' id='send'>Home</button>
-                </div><br />
+                    <button class='btn btn-primary' id='home'>Home</button>
+                </div>
             </div>
             <div class="cover">
             </div>
@@ -32,13 +28,12 @@
             <div class="buttons">
                 <div class="bottom-buttons">
                     <button class='btn btn-primary' id='play'>Play Playlist!</button>
+                    <button class='btn btn-primary hidden' id='stop'>Stop Playlist!</button>
                     <button class='btn btn-primary' id='save'>Save Playlist</button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script src="js/result.js" type="text/javascript"></script>
-    <script src="js/search.js" type="text/javascript"></script>
+    <script src="src/result.js" type="text/javascript"></script>
 </body>
 </html>
