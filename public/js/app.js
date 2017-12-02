@@ -7,7 +7,7 @@ var mode = $('input[name=options]:checked').val();
 // Google Maps API
 // TO-DO: STORE THE DURATION IN LOCAL STORAGE SO WE CAN USE IT LATER
 
-var client_id = '5cb9c36d867a4d479af678d8c130103c';
+var client_id = '8edb16d3b1b4478dab963f2908893e47';
 var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
 var localredirect = "http://localhost:3000/authorize";
 form.addEventListener('submit', function(e) {
@@ -57,7 +57,7 @@ function submitFunction() {
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       mapTypeControl: false,
-      center: {lat: -33.8688, lng: 151.2195},
+      center: {lat: 47.6553, lng: 122.3035},
       zoom: 13
     });
 
