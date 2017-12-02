@@ -1,5 +1,5 @@
 .container {
-    text-align: cenrter;
+    text-align: center;
 }
 
 .mdl-radio__label {
@@ -35,6 +35,7 @@
 .main-card > .mdl-card__title {
     height: 176px;
     background: linear-gradient(rgb(255, 54, 54), rgb(255, 84, 84));
+    color: white;
 }
 
 .wide-button.mdl-button {
@@ -46,4 +47,8 @@
 ul {
     list-style: none;
     margin-left: -35px;
+}
+
+.mdl-card__title-text {
+    padding-left: 13%;
 }
