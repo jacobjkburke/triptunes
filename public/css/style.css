@@ -1,54 +1,55 @@
-.container {
-    text-align: center;
+#map {
+    height: 100%;
 }
 
-.mdl-radio__label {
-    margin-left: -18px;
-    margin-top: 25px;
-    font-size: 70px;
-    font-weight: 300;
-}
-
-
-.mdl-radio {
-    padding-bottom: 50px;
-    padding-right: 20px;
-}
-
-.material-icons {
-    color: black;
-    transition: color 200ms;
-}
-
-.main-card.mdl-card {
-    width: 500px;
-    text-align: center;
-    margin: 10vh auto 0 auto;
-    height: 650px;
-}
-
-.main-card input {
-    margin-top: 30px;
-}
-
-
-.main-card > .mdl-card__title {
-    height: 176px;
-    background: linear-gradient(rgb(255, 54, 54), rgb(255, 84, 84));
-    color: white;
-}
-
-.wide-button.mdl-button {
+html, body {
+    height: 100%;
     width: 100%;
-    margin-left: -150px;
-    margin-bottom: -70px;
+    margin: 0;
+    padding: 0;
+}
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-ul {
-    list-style: none;
-    margin-left: -35px;
+#origin-input,
+#destination-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 200px;
 }
 
-.mdl-card__title-text {
-    padding-left: 13%;
+#origin-input:focus,
+#destination-input:focus {
+    border-color: #4d90fe;
+}
+
+#mode-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    margin-left: 12px;
+    padding: 5px 11px 0px 11px;
+    }
+
+#mode-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300; 
+}
+
+#control-panel {
+    width: 25%;
+    background: lightgreen;
 }
