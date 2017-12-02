@@ -17,7 +17,9 @@ form.addEventListener('submit', function(e) {
     var spotifyAUTHURL = "https://accounts.spotify.com/authorize/?client_id=" + 
     					 client_id + "&response_type=code&redirect_uri=" + 
     					 encodeURIComponent(localredirect) + 
-    					 "&scope=user-read-private%20user-read-email&state=34fFs29kd09&show_dialog=true";
+    					 "&scope=" + encodeURIComponent('user-read-email user-read-private playlist-modify-private playlist-modify-public playlist-read-private playlist-read-collaborative') +
+    					 "&state=34fFs29kd09&show_dialog=true";
+    					 
 	
     window.location.href = spotifyAUTHURL;
 });
