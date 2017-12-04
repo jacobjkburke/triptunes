@@ -52,4 +52,8 @@ setTimeout(function() {
     songs.frameborder = '0';
     songs.allowtransparency = 'true';
     playlist.appendChild(songs);
+    document.getElementById("page-elements").classList.remove('hidden');
+    document.getElementById("page-elements").classList.add('show');
+    document.getElementById("loading").classList.remove('show');
+    document.getElementById("loading").classList.add('hidden');
 }, 5000);

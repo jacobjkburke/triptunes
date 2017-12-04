@@ -162,14 +162,16 @@ function initMap() {
 // -------------------  NAVIGATION ------------------
 // This begin button takes the user from the home page to the Google Maps page using animations (transition property)
 $("#begin").on("click", function() {
-	nav("maps");
+  nav("maps");
+  document.getElementById('origin-input').focus()
 });
 
 // This onto-next button takes the user from Google Maps page to Spotify page using animations (transition property)
 $("#onto-next").on("click", function(e) {
 	e.preventDefault();
 	//$("#music").show();
-	nav("music");
+  nav("music");
+  document.getElementById('spotify-input').focus()
 });
 
 
@@ -198,11 +200,13 @@ $("#nav-home").on("click", function () {
 });
 
 $("#nav-maps").on("click", function () {
-	nav("maps");
+  nav("maps");
+  document.getElementById('origin-input').focus()
 });
 
 $("#nav-music").on("click", function () {
-	nav("music");
+  nav("music");
+  document.getElementById('spotify-input').focus()
 });
 
 
