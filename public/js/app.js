@@ -1,4 +1,4 @@
-var form = document.getElementById("login-form");
+var form = document.getElementById("spotify-form");
 var start = document.getElementById("start");
 var end = document.getElementById("destination");
 var mode = $('input[name=options]:checked').val();
@@ -54,11 +54,14 @@ function submitFunction() {
     console.log(genreValue);
 }
 
+
+// -------------------  GOOGLE MAPS API CODE ------------------
+// -------------------- A.K.A. MYSTERY CODE -------------------
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       mapTypeControl: false,
       center: {lat: 47.6553, lng: 122.3035},
-      zoom: 13
+      zoom: 5
     });
 
     new AutocompleteDirectionsHandler(map);
@@ -88,10 +91,7 @@ function initMap() {
 
     this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
     this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+	
   }
 
   // Sets a listener on a radio button to change the filter type on Places
@@ -143,5 +143,102 @@ function initMap() {
     });
   };
 
+// -------------------  NAVIGATION ------------------
+// This begin button takes the user from the home page to the Google Maps page using animations (transition property)
+$("#begin").on("click", function() {
+	nav("maps");
+});
+
+// This onto-next button takes the user from Google Maps page to Spotify page using animations (transition property)
+$("#onto-next").on("click", function(e) {
+	e.preventDefault();
+	//$("#music").show();
+	nav("music");
+});
+
+// This hides the music page when the page loads, just for smooth UX
+$(document).ready(function() {
+	//$("#music").hide();
+  $("#control-panel").css("margin-left", "-100vw");
+});
 
 
+// -------------------  NAVBAR UI ------------------
+/*Basically when each of the three buttons is clicked, a few things are happening
+
+	1. The .nav-selected class is being added to the icon that was clicked,
+	and removed from the other two.
+	2. The selector-ul (the blue underline under each icon) is being moved
+	over under the icon that was pressed
+	3. The page animations are being triggered
+	4. The .onmusic class is being added/removed depending on if the music
+	icon is clicked. This class just makes the icons white instead of black.
+
+*/
+
+$("#nav-home").on("click", function () {
+	nav("home");
+});
+
+$("#nav-maps").on("click", function () {
+	nav("maps");
+});
+
+$("#nav-music").on("click", function () {
+	nav("music");
+});
+
+
+function nav(location) {
+	if (location == "home") {
+    $("#music").css("z-index", "-10");
+    $(".header").css("top", "0");
+    $("#logo").addClass("logo-active");
+		$("#nav-home").addClass("nav-selected");
+		$("#nav-maps").removeClass("nav-selected");
+		$("#nav-music").removeClass("nav-selected");
+		$("#selector-ul").css({
+			"left": "33px"
+		});
+		$("#map").css({
+			"margin-left": "0"
+		});
+		$("div.navitem").removeClass("onmusic");
+		$("#control-panel").css("margin-left", "-100vw");
+		$("#welcome").css("margin-left", "0");
+	} else if (location == "maps") {
+    $("#music").css("z-index", "-10");
+    $(".header").css("top", "-8vh");
+    $("#logo").removeClass("logo-active");
+		$("#nav-maps").addClass("nav-selected");
+		$("#nav-home").removeClass("nav-selected");
+		$("#nav-music").removeClass("nav-selected");
+		$("#selector-ul").css({
+			"left": "98px"
+		});
+		$("#welcome").css("margin-left", "-100vw");
+		$("#map").css({
+			"margin-left": "0"
+		});
+		$("div.navitem").removeClass("onmusic");
+		$("#control-panel").css("margin-left", "0");
+	} else if (location == "music") {
+    $("#nav-music").addClass("nav-selected");
+    $(".header").css("top", "-8vh");
+    $("#logo").removeClass("logo-active");
+		$("#nav-home").removeClass("nav-selected");
+		$("#nav-maps").removeClass("nav-selected");
+		$("#selector-ul").css({
+			"left": "164px"
+		});
+		$("#welcome").css("margin-left", "-100vw");
+		$("#map").css({
+			"margin-left": "-100vw"
+		});
+		$("#control-panel").css("margin-left", "-100vw");
+		$("div.navitem").addClass("onmusic");
+		setTimeout(function() {
+			$("#music").css("z-index", "10");
+		}, 1000);
+	}
+}

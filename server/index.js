@@ -31,7 +31,7 @@ app.get('/api/google', function (req, res) {
 // Spotify API
 
 var SPOTIFY_ID = '8edb16d3b1b4478dab963f2908893e47';
-var SPOTIFY_SECRET = '47bede1c209c4170b08eeb108bfe14c9';
+var SPOTIFY_SECRET = '1f7b56e0791748c689742b52e49116af';
 
 
 // STEP 1: LOGIN AUTHORIZATION
