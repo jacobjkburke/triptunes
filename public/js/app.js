@@ -7,6 +7,10 @@ var mode = $('input[name=options]:checked').val();
 // Google Maps API
 // TO-DO: STORE THE DURATION IN LOCAL STORAGE SO WE CAN USE IT LATER
 
+$(document).ready(function() {
+  localStorage.clear();
+});
+
 var client_id = '8edb16d3b1b4478dab963f2908893e47';
 var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
 var localredirect = "http://localhost:3000/authorize";
@@ -14,11 +18,18 @@ form.addEventListener('submit', function(e) {
 
     e.preventDefault();
 
+    var spotifyInput = $("#spotify-input").val();
+    console.log(spotifyInput);
+    localStorage.setItem("spotify-input", spotifyInput);
+
+    var playlistName = $("#playlist-name-input").val();
+    localStorage.setItem("playlist-name", playlistName);
+
     var spotifyAUTHURL = "https://accounts.spotify.com/authorize/?client_id=" + 
     					 client_id + "&response_type=code&redirect_uri=" + 
     					 encodeURIComponent(localredirect) + 
     					 "&scope=" + encodeURIComponent('user-read-email user-read-private playlist-modify-private playlist-modify-public playlist-read-private playlist-read-collaborative') +
-    					 "&state=34fFs29kd09&show_dialog=true";
+    					 "&state=34fFs29kd09";
     					 
 	
     window.location.href = spotifyAUTHURL;
@@ -29,11 +40,11 @@ var start = document.getElementById("origin-input");
 
 var destination = document.getElementById("destination-input");
 
-var genre = document.getElementById("genre-input");
+var genre = document.getElementById("spotify-input");
 //auto complete for song genre maybe?
 var methodRadios = document.getElementsByName("type");
 var methodArray = ["WALKING", "BICYCLING", "TRANSIT", "DRIVING"];
-var submitButton = document.getElementById("submit");
+var submitButton = document.getElementById("onto-next");
 submitButton.addEventListener("click", submitFunction);
 
 
@@ -43,6 +54,7 @@ function submitFunction() {
             // do whatever you want with the checked radio
             var travelMethod = methodArray[i];
             console.log(travelMethod);
+            localStorage.setItem("mode", travelMethod);
             break;
         }
     }
@@ -52,6 +64,10 @@ function submitFunction() {
     console.log(destinationValue);
     var genreValue = genre.value;
     console.log(genreValue);
+
+    localStorage.setItem("start", start.value);
+    localStorage.setItem("end", destination.value);
+    localStorage.setItem("spotifyQuery", genreValue);
 }
 
 
@@ -60,8 +76,8 @@ function submitFunction() {
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       mapTypeControl: false,
-      center: {lat: 47.6553, lng: 122.3035},
-      zoom: 5
+      center: {lat: 47.6553, lng: -122.3035},
+      zoom: 14
     });
 
     new AutocompleteDirectionsHandler(map);
@@ -155,6 +171,7 @@ $("#onto-next").on("click", function(e) {
 	//$("#music").show();
 	nav("music");
 });
+
 
 // This hides the music page when the page loads, just for smooth UX
 $(document).ready(function() {
