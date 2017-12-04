@@ -1,5 +1,7 @@
 var spotifyForm = document.getElementById("spotify-form");
 var spotifyInput = document.getElementById("spotify-input");
+var duration = localStorage.getItem("duration");
+console.log("duration: " + duration);
 
 spotifyForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -14,7 +16,6 @@ spotifyForm.addEventListener('submit', function (e) {
     
 	fetch('/api/userinfo?access_token=' + token)
   	.then(function (response) {
-  		console.log("step1");
         return response.json();
   	}).then(function (userinfo) {	  	
   	  	user_id = userinfo.id;
@@ -24,18 +25,35 @@ spotifyForm.addEventListener('submit', function (e) {
       	.then(function(response) {     		
       		return response.json();
       	}).then(function(createdplaylist) {
-      		console.log(createdplaylist);
+      		// console.log(createdplaylist);
       		playlist_id = JSON.parse(createdplaylist).id;
       		return fetch('/api/spotify?q=' + query + '&access_token=' + token)
       		.then(function(response) {	
       			return response.json();    
 			}).then(function(search) {
-				console.log(search);
-				return fetch('./api/addsongs?uris=spotify:track:69M9QCMsCQ5MLsw7BBW0rL' + '&id=' + user_id + "&playlistid=" + playlist_id + '&access_token=' + token)
+			   console.log(search);
+            var dict = search.tracks.items;
+            var totaltime = 0;
+            var songs = [];
+            for (var i = 0; i < dict.length; i++) {
+               if (totaltime < duration) {   
+                  console.log("seconds: " + dict[i].duration_ms / 1000);
+                  totaltime += dict[i].duration_ms / 1000
+                  songs.push(dict[i].uri);
+               }
+            }
+				return fetch('./api/addsongs?uris=' + songs + '&id=' + user_id + "&playlistid=" + playlist_id + '&access_token=' + token)
 				.then(function(response) {
 					return response.json();
 				}).then(function(addedsongs) {
-					console.log(addedsongs);
+					// console.log(addedsongs);
+               return fetch('./api/getplaylist?id=' + user_id + "&playlistid=" + playlist_id + "&access_token=" + token)
+               .then(function(response) {
+                  return response.json();
+               }).then(function(retrievedplaylist) {
+                  // console.log(JSON.parse(retrievedplaylist));
+                  localStorage.setItem("uritouse", JSON.parse(retrievedplaylist).uri);
+               });
 				});
 			});
 		});
