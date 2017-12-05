@@ -1,24 +1,10 @@
-document.getElementById("play").addEventListener("click", playFunction);
-document.getElementById("stop").addEventListener("click", stopFunction);
-document.getElementById("home").addEventListener("click", homeFunction);
+// document.getElementById("play").addEventListener("click", playFunction);
+// document.getElementById("stop").addEventListener("click", stopFunction);
+// document.getElementById("home").addEventListener("click", homeFunction);
 
 $(document).on("load", function() {
     location.reload();
 });
-
-function playFunction() {
-    var playButton = document.getElementById("play");
-    var stopButton = document.getElementById("stop");
-    playButton.classList.add("hidden");
-    stopButton.classList.remove("hidden");
-}
-
-function stopFunction() {
-    var playButton = document.getElementById("play");
-    var stopButton = document.getElementById("stop");
-    stopButton.classList.add("hidden");
-    playButton.classList.remove("hidden");
-}
 
 function homeFunction() {
     window.location.href = 'index.html';
@@ -47,9 +33,17 @@ setTimeout(function() {
     var songs = document.createElement("iframe"); 
     songs.src = 'https://open.spotify.com/embed?uri=' + uri;
     console.log(songs.src);
-    songs.width = '300';
-    songs.height = '300';
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var wi = parseInt(w);
+    var he = parseInt(h);
+    var wid =  he/2;
+    var hei =  he/2;
+    songs.width = wid + "px";
+    songs.height = hei + "px";
     songs.frameborder = '0';
     songs.allowtransparency = 'true';
     playlist.appendChild(songs);
-}, 5000);
+    $("#page-elements").removeClass("hidden").addClass("show");
+    $("#loading").removeClass("show").addClass("hidden");
+}, 6000);

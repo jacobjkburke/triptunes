@@ -8,10 +8,22 @@
     <link rel="stylesheet" href="css/result.css" type="text/css">
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
 
+    <!-- Adobe Typekit -->
+    <link rel="stylesheet" href="https://use.typekit.net/bag1aue.css">
+
+
+
 </head>
 <body>
-    <div class="container">
-        <div class='col col-sm-6'>
+    <div>
+        <div class="header">
+                <h2>Trip Tunes</h2>
+        </div>
+        <div class="show" id="loading">
+            <h2>Loading...</h2>
+        </div>
+        <div class='hidden' id="page-elements">
+            <!--
             <div class="header">
                 <h2>Trip Tunes</h2>
             </div>
@@ -20,18 +32,16 @@
                     <button class='btn btn-primary' id='home'>Home</button>
                 </div><br />
             </div>
+        -->
+            <h1>Have a nice trip!</h1>
             <div class="cover">
             </div>
             <div class="info">
             </div>
             <div id="playlist">
             </div>
-            <div class="buttons">
-                <div class="bottom-buttons">
-                    <button class='btn btn-primary' id='play'>Play Playlist!</button>
-                    <button class='btn btn-primary hidden' id='stop'>Stop Playlist!</button>
-                    <button class='btn btn-primary' id='save'>Save Playlist</button>
-                </div>
+            <div class="buttons welcome-center">
+                <button class="mdl-button mdl-js-button mdl-button--raised" id='restart'>RESET</button>
             </div>
         </div>
     </div>

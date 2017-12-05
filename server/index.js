@@ -96,6 +96,19 @@ app.get('/api/create-playlist', function (req, res) {
 
 });
 
+app.get('/api/recommendations', function (req, res) {
+    var artistID = req.query.artistid;
+    var token = req.query.access_token;
+    request.get({
+        url: "https://api.spotify.com/v1/recommendations?seed_artists=" + artistID + "&limit=100",
+        auth: {
+            bearer: token
+        }   
+    }, function (recErr, recResponse, recBody) {
+        res.json(recBody);
+    });
+});
+
 
 // STEP 4: SEARCH FOR SONGS
 app.get('/api/spotify', function (req, res) {

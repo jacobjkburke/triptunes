@@ -15,9 +15,10 @@ var client_id = '8edb16d3b1b4478dab963f2908893e47';
 var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
 var localredirect = "http://localhost:3000/authorize";
 form.addEventListener('submit', function(e) {
-
     e.preventDefault();
-
+    if ($("#playlist-name-input").val() == "" || $("#playlist-name-input").val() == null) {
+      $("#playlist-name-input").attr("placeholder", "Must enter title!");
+    } else {
     var spotifyInput = $("#spotify-input").val();
     console.log(spotifyInput);
     localStorage.setItem("spotify-input", spotifyInput);
@@ -33,8 +34,8 @@ form.addEventListener('submit', function(e) {
     					 
 	
     window.location.href = spotifyAUTHURL;
+    }
 });
-
 
 var start = document.getElementById("origin-input");
 
@@ -162,7 +163,7 @@ function initMap() {
 // -------------------  NAVIGATION ------------------
 // This begin button takes the user from the home page to the Google Maps page using animations (transition property)
 $("#begin").on("click", function() {
-	nav("maps");
+  nav("maps");
 });
 
 // This onto-next button takes the user from Google Maps page to Spotify page using animations (transition property)
@@ -198,17 +199,18 @@ $("#nav-home").on("click", function () {
 });
 
 $("#nav-maps").on("click", function () {
-	nav("maps");
+  nav("maps");
 });
 
 $("#nav-music").on("click", function () {
-	nav("music");
+  nav("music");
 });
 
 
 function nav(location) {
 	if (location == "home") {
     $("#music").css("z-index", "-10");
+    $("#begin").show();
     $(".header").css("top", "0");
     $("#logo").addClass("logo-active");
 		$("#nav-home").addClass("nav-selected");
@@ -222,8 +224,12 @@ function nav(location) {
 		});
 		$("div.navitem").removeClass("onmusic");
 		$("#control-panel").css("margin-left", "-100vw");
-		$("#welcome").css("margin-left", "0");
+    $("#welcome").css("margin-left", "0");
+    setTimeout(function(){$("#begin").css("opacity","1")},100);
 	} else if (location == "maps") {
+    $("#begin").css("opacity","0");
+    setTimeout(function(){$("#begin").hide();},500);
+    $('#origin-input').focus();
     $("#music").css("z-index", "-10");
     $(".header").css("top", "-8vh");
     $("#logo").removeClass("logo-active");
@@ -240,6 +246,9 @@ function nav(location) {
 		$("div.navitem").removeClass("onmusic");
 		$("#control-panel").css("margin-left", "0");
 	} else if (location == "music") {
+    $("#begin").css("opacity","0");
+    setTimeout(function(){$("#begin").hide();},500);
+    $('#spotify-input').focus();
     $("#nav-music").addClass("nav-selected");
     $(".header").css("top", "-8vh");
     $("#logo").removeClass("logo-active");
@@ -259,3 +268,27 @@ function nav(location) {
 		}, 1000);
 	}
 }
+
+$("#spotify-next").on("click", function(e) {
+  e.preventDefault();
+  $("#playlist-name").css({
+    "display": "block"
+  });
+  setTimeout(function() {
+    $("#playlist-name").css({
+      "opacity": "1"
+    }); 
+  }, 100);
+});
+
+$("#playlist-name-close").on("click", function(e) {
+  e.preventDefault();
+  $("#playlist-name").css({
+    "opacity": "0"
+  }); 
+  setTimeout(function() {
+    $("#playlist-name").css({
+      "display": "none"
+    });
+  }, 200);
+});
