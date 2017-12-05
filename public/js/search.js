@@ -44,7 +44,16 @@ window.addEventListener('load', function (e) {
       			return response.json();    
 			}).then(function(search) {
 			console.log(search);
-            var dict = search.tracks.items;
+			var artistID = search.tracks.items[0].artists[0].id;
+			console.log(artistID);
+			return fetch('/api/recommendations?artistid=' + artistID + '&access_token=' + token)
+			.then(function (response) {
+				return response.json();
+			}).then(function (recs) {
+			console.log(JSON.parse(recs));
+			var datum = JSON.parse(recs);
+			var dict = datum.tracks;
+			console.log(dict);
             var totaltime = 0;
             var songs = [];
             for (var i = 0; i < dict.length; i++) {
@@ -62,12 +71,13 @@ window.addEventListener('load', function (e) {
                .then(function(response) {
                   return response.json();
                }).then(function(retrievedplaylist) {
-                	//console.log(JSON.parse(retrievedplaylist));
+                	console.log(JSON.parse(retrievedplaylist));
                   localStorage.setItem("uritouse", JSON.parse(retrievedplaylist).uri);
                });
 				});
 			});
 		});
+		});
 	  });
-	}, 2500);
+	}, 3000);
 });
