@@ -82,6 +82,21 @@ iframe {
     background-color: rgb(50, 158, 50);
 }
 
+#title {
+    text-shadow: 5px 1px 3px rgba(29,185,84,1);
+    font-weight: normal;
+    font-style: oblique;
+    font-variant: small-caps;
+    color: #191414;
+    letter-spacing: -1pt;
+    word-spacing: -20pt;
+    font-size: 68px;
+    text-align: left;
+    font-family: arial black, sans-serif;
+    line-height: 2;
+    margin-top: -40px;
+}
+
 @media (max-width: 762px) {
     iframe {
         margin-top: 150px;
