@@ -1,6 +1,6 @@
 // document.getElementById("play").addEventListener("click", playFunction);
 // document.getElementById("stop").addEventListener("click", stopFunction);
-// document.getElementById("home").addEventListener("click", homeFunction);
+ document.getElementById("restart").addEventListener("click", homeFunction);
 
 $(document).on("load", function() {
     location.reload();
@@ -47,3 +47,4 @@ setTimeout(function() {
     $("#page-elements").removeClass("hidden").addClass("show");
     $("#loading").removeClass("show").addClass("hidden");
 }, 6000);
+

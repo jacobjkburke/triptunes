@@ -5,7 +5,6 @@ var mode = $('input[name=options]:checked').val();
 
 
 // Google Maps API
-// TO-DO: STORE THE DURATION IN LOCAL STORAGE SO WE CAN USE IT LATER
 
 $(document).ready(function() {
   localStorage.clear();
@@ -69,6 +68,8 @@ function submitFunction() {
     localStorage.setItem("start", start.value);
     localStorage.setItem("end", destination.value);
     localStorage.setItem("spotifyQuery", genreValue);
+    
+    
 }
 
 

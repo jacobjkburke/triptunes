@@ -41,7 +41,6 @@ body {
     top: 0;
     padding-top: 7.5px;
     background-color: rgb(221, 221, 221);
-    color: black;
     width: 100vw;
     height: 80px;
     text-align: left;
@@ -49,8 +48,21 @@ body {
     left: 0;
     z-index: 50;
     transition: top 500ms;
-    font-weight: 700;
-    font-family: "proxima-nova" ,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#title {
+    text-shadow: 5px 1px 3px rgba(29,185,84,1);
+    font-weight: normal;
+    font-style: oblique;
+    font-variant: small-caps;
+    color: #191414;
+    letter-spacing: -1pt;
+    word-spacing: -20pt;
+    font-size: 68px;
+    text-align: left;
+    font-family: arial black, sans-serif;
+    line-height: 2;
+    margin-top: -40px;
 }
 
 #logo {
