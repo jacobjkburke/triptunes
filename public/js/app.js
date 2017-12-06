@@ -242,7 +242,6 @@ $("#nav-music").on("click", function () {
   nav("music");
 });
 
-
 function nav(location) {
 	if (location == "home") {
     $("#music").css("z-index", "-10");

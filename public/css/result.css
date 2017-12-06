@@ -111,6 +111,10 @@ iframe {
     width: 45px;
 }
 
+#logo, #title {
+    cursor: pointer;
+}
+
 #loading {
     font-size: 50px;
     color: rgb(50, 158, 50);

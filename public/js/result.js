@@ -1,6 +1,9 @@
 // document.getElementById("play").addEventListener("click", playFunction);
 // document.getElementById("stop").addEventListener("click", stopFunction);
  document.getElementById("restart").addEventListener("click", homeFunction);
+ document.getElementById("title").addEventListener("click", homeFunction);
+ document.getElementById("logo").addEventListener("click", homeFunction);
+ 
 
 $(document).on("load", function() {
     location.reload();
