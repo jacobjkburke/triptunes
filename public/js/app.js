@@ -179,7 +179,24 @@ $("#onto-next").on("click", function(e) {
 $(document).ready(function() {
 	//$("#music").hide();
   $("#control-panel").css("margin-left", "-100vw");
+
+  desAnim(1);
+
 });
+
+function desAnim(t) {
+  if (t <= 6) {
+      setTimeout(function() {
+      $("#t" + t).css("opacity", "1");
+      }, 1000);
+      setTimeout(function() {
+        $("#t" + t).css("opacity", "0");
+        desAnim(t+1);
+      },4000);
+  } else {
+    desAnim(1);
+  }
+}
 
 
 // -------------------  NAVBAR UI ------------------
@@ -215,15 +232,16 @@ function nav(location) {
     $(".header").css("top", "0");
     $("#logo").addClass("logo-active");
 		$("#nav-home").addClass("nav-selected");
-		$("#nav-maps").removeClass("nav-selected");
-		$("#nav-music").removeClass("nav-selected");
+		$("#nav-maps").removeClass("nav-selected").addClass("onmusic");
+    $("#nav-music").removeClass("nav-selected");
+    $("#nav-music").addClass("onmusic");
+    $("#nav-maps").addClass("onmusic");
 		$("#selector-ul").css({
 			"left": "33px"
 		});
 		$("#map").css({
 			"margin-left": "0"
 		});
-		$("div.navitem").removeClass("onmusic");
 		$("#control-panel").css("margin-left", "-100vw");
     $("#welcome").css("margin-left", "0");
     setTimeout(function(){$("#begin").css("opacity","1")},100);
@@ -293,3 +311,4 @@ $("#playlist-name-close").on("click", function(e) {
     });
   }, 200);
 });
+

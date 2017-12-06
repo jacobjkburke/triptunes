@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,200i,500,500i,900,900i" rel="stylesheet">
 
     <!-- Material Design Lite -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -27,16 +27,16 @@
         <div id="nav-home" class="navitem nav-selected">
             <i class="fa fa-home" aria-hidden="true"></i>
         </div>
-        <div id="nav-maps" class="navitem">
+        <div id="nav-maps" class="navitem onmusic">
             <i class="fa fa-location-arrow" aria-hidden="true"></i>
         </div>
-        <div id="nav-music" class="navitem">
+        <div id="nav-music" class="navitem onmusic">
             <i class="fa fa-music" aria-hidden="true"></i>
         </div>
         <span id="selector-ul"></span>
     </div>
     <div class="header">
-            <h2 id="title">Trip Tunes</h2>
+            <h1 id="title">Trip Tunes</h1>
     </div>
     <div id="logo" class="logo-active">
         <img src="img/logo.png" />
@@ -45,14 +45,22 @@
         <div class="mdl-grid">
                     <div id="desrciption">
 
-                        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-                        
-                        1914 translation by H. Rackham
+                        <p><h3 class="d-el" id="t1">For that early morning <b>commute</b></h3></p>
+                        <p><h3 class="d-el" id="t2">For that <b>quick walk</b> to campus</h3></p>
+                        <p><h3 class="d-el" id="t3">For that daily <b>bus ride</b> to the office</h3></p>
+                        <p><h3 class="d-el" id="t4">For that romantic coastal <b>drive</b></h3></p>
+                        <p><h3 class="d-el" id="t5">For that transnational <b>train trip</b></h3></p>
+                        <p><h3 class="d-el" id="t6">For that late night tandem <b>bike ride</b></h3></p>
                     </div>
+                    <p><h2 class="d-ed">What's <b>your</b> trip sound like?</h3></p>
                     <div class="mdl-cell mdl-cell--12-col welcome-center">
                             <button class="mdl-button mdl-js-button mdl-button--raised" id='begin'>Begin</button>
                     </div>
             <div id="description-wrapper" class="welcome-center">
+                <div id="blurb">
+                        <p><h4 id="blurb-head">Playlists tailored to your lifestyle</h4></p>
+                        <p class="mdl-cell mdl-cell--12-col welcome-center"><h6 id="blurb-content">Trip Tunes uses Google Maps routing technologies in combination with Spotify's powerful playlist building tools to bring you music you'll love to make every trip memorable.</h6></p>
+                </div>
                 <div id="feature-maps" class="mdl-cell mdl-cell--6-col welcome-center feature">
                     <img id="maps-logo" src="https://upload.wikimedia.org/wikipedia/en/2/23/GoogleMaps.svg" />
                     <div class="feature-description">
@@ -111,8 +119,8 @@
     <div id="music">
         <div class="mdl-grid">
             <div id="music-header" class="mdl-cell mdl-cell--12-col welcome-center">
-                <h1>Search for an Artist</h1>
-                <p>Search for an artist and we will create a playlist based off that artist</p>
+                <h1 id="music-head">Search for an Artist</h1>
+                <pid="music-sub">Search for an artist and we will create a playlist based off that artist</p>
             </div>
             <div class="mdl-cell mdl-cell--12-col welcome-center">
                 <form id="spotify-form">
