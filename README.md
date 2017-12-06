@@ -1,3 +1,4 @@
+Deployed at [triptunes.now.sh](https://triptunes.now.sh/index.html)
 
 # Description
 The app uses the Google Maps API to allow users to input a destination and choose their method of transportation.  The user is able to enter an artist or genre into a “playlist form” that then uses Spotify API to create them a playlist based on the length of time it will take them to travel from point A to point B.  
