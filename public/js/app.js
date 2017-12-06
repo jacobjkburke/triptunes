@@ -232,7 +232,7 @@ function nav(location) {
     setTimeout(function(){$("#begin").hide();},500);
     $('#origin-input').focus();
     $("#music").css("z-index", "-10");
-    $(".header").css("top", "-8vh");
+    $(".header").css("top", "-80px");
     $("#logo").removeClass("logo-active");
 		$("#nav-maps").addClass("nav-selected");
 		$("#nav-home").removeClass("nav-selected");
@@ -251,7 +251,7 @@ function nav(location) {
     setTimeout(function(){$("#begin").hide();},500);
     $('#spotify-input').focus();
     $("#nav-music").addClass("nav-selected");
-    $(".header").css("top", "-8vh");
+    $(".header").css("top", "-80px");
     $("#logo").removeClass("logo-active");
 		$("#nav-home").removeClass("nav-selected");
 		$("#nav-maps").removeClass("nav-selected");
