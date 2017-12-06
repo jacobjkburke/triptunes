@@ -13,7 +13,7 @@
 
     <!-- Material Design Lite -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
@@ -127,6 +127,25 @@
                     <div class="mdl-cell mdl-cell--12-col welcome-center">
                         <input type="text" class="spotify-input" value="" id="spotify-input" placeholder="Search Artist"/>
                         <button class="music-search" id='spotify-next'>NEXT</button>
+                        <p><a id="more-options-btn" href="#adv">More Options</a></p>
+                        <div id="more-options" class="welcome-center">
+                            <label for="slider-1">Energy</label>
+                            <input id="slider-1"class="mdl-slider mdl-js-slider" type="range"
+                            min="0" max="100" value="50" tabindex="0">
+                            <div class="spacer"></div>
+                            <label for="slider-2">Danceability</label>
+                            <input id="slider-2" class="mdl-slider mdl-js-slider" type="range"
+                            min="0" max="100" value="50" tabindex="0">
+                            <div class="spacer"></div>
+                            <label for="slider-3">Acousticness</label>
+                            <input id="slider-3" class="mdl-slider mdl-js-slider" type="range"
+                            min="0" max="100" value="50" tabindex="0">
+                            <div class="spacer"></div>
+                            <label for="slider-4">Popularity</label>
+                            <input id="slider-4" class="mdl-slider mdl-js-slider" type="range"
+                            min="0" max="100" value="50" tabindex="0">
+
+                        </div>
                         <div id="playlist-name" class="welcome-center">
                             <div id="playlist-name-box" class="welcome-center">
                                 <input type="text" class="spotify-input input-full" value="" id="playlist-name-input" placeholder="Playlist Title"/>

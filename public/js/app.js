@@ -22,6 +22,24 @@ form.addEventListener('submit', function(e) {
     console.log(spotifyInput);
     localStorage.setItem("spotify-input", spotifyInput);
 
+    var opt = localStorage.getItem("adv");
+    if (opt == "true") {
+      var energy = $("#slider-1").val();
+      energy = (energy/100).toFixed(1);
+      console.log(energy);
+      var danceability = $("#slider-2").val();
+      danceability = (danceability/100).toFixed(1);
+      console.log(danceability);
+      var acousticness = $("#slider-3").val();
+      acousticness = (acousticness/100).toFixed(1);
+      console.log(acousticness);
+      var popularity = $("#slider-4").val();
+      localStorage.setItem("energy", energy);
+      localStorage.setItem("danceability", danceability);
+      localStorage.setItem("acousticness", acousticness);
+      localStorage.setItem("popularity", popularity);
+    }
+
     var playlistName = $("#playlist-name-input").val();
     localStorage.setItem("playlist-name", playlistName);
 
@@ -312,3 +330,31 @@ $("#playlist-name-close").on("click", function(e) {
   }, 200);
 });
 
+var options = false;
+$("#more-options-btn").on("click", function() {
+    if (!options) {
+      $("#music").css("padding-top", "5vh");
+      $("#more-options").css("display", "block");
+      setTimeout(function() {
+        $("#more-options").css({
+          "height": "300px"
+        });
+      }, 0.000000001);
+      localStorage.setItem("adv", "true");
+      $("#more-options-btn").text("Hide Options");
+      $("#more-options-btn").css("color", "gray");
+      options = true;
+    } else {
+      $("#music").css("padding-top", "25vh");
+      $("#more-options").css("height", "0");
+      setTimeout(function() {
+        $("#more-options").css({
+          "display": "none"
+        });
+      }, 150);
+      localStorage.setItem("adv", "false");
+      $("#more-options-btn").text("More Options");
+      $("#more-options-btn").css("color", "rgb(55, 167, 55)");
+      options = false;
+    }
+});
