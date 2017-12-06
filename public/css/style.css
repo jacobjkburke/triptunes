@@ -396,8 +396,8 @@ ul {
 #more-options {
     width: 200px;
     margin-left: 50vw;
-    transform: translateX(-120px) scale(1.75, 1.75);
-    margin-top: 130px;
+    transform: translateX(-120px) scale(1.5, 1.5);
+    margin-top: 78px;
     background-color: rgb(29, 29, 29); 
     padding: 20px 10px 40px 10px;
     border-radius: 30px;

@@ -1,10 +1,26 @@
 // document.getElementById("play").addEventListener("click", playFunction);
 // document.getElementById("stop").addEventListener("click", stopFunction);
  document.getElementById("restart").addEventListener("click", homeFunction);
+ document.getElementById("title").addEventListener("click", homeFunction);
+ document.getElementById("logo").addEventListener("click", homeFunction);
 
 $(document).on("load", function() {
     location.reload();
+    loadingAnim(); 
 });
+
+var loading = true;
+
+function loadingAnim() {
+    if (loading) {
+        $("#loading-p").text("Loading");
+        setTimeout(function(){$("#loading-p").text("Loading.");},500);
+        setTimeout(function(){$("#loading-p").text("Loading..");},1000);
+        setTimeout(function(){$("#loading-p").text("Loading...");},1500);
+        loadingAnim();
+    }
+}
+
 
 function homeFunction() {
     window.location.href = 'index.html';
@@ -46,5 +62,6 @@ setTimeout(function() {
     playlist.appendChild(songs);
     $("#page-elements").removeClass("hidden").addClass("show");
     $("#loading").removeClass("show").addClass("hidden");
-}, 6000);
+    loading = false;
+}, 8000);
 

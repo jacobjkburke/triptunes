@@ -13,6 +13,8 @@ $(document).ready(function() {
 var client_id = '8edb16d3b1b4478dab963f2908893e47';
 var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
 var localredirect = "http://localhost:3000/authorize";
+//var localredirect = "https://triptunes.now.sh/authorize"
+
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     if ($("#playlist-name-input").val() == "" || $("#playlist-name-input").val() == null) {
@@ -333,8 +335,9 @@ $("#playlist-name-close").on("click", function(e) {
 var options = false;
 $("#more-options-btn").on("click", function() {
     if (!options) {
-      $("#music").css("padding-top", "5vh");
+      $("#music").css("padding-top", "0vh");
       $("#more-options").css("display", "block");
+      $("#music").css("height", "140vh");
       setTimeout(function() {
         $("#more-options").css({
           "height": "300px"
@@ -347,6 +350,7 @@ $("#more-options-btn").on("click", function() {
     } else {
       $("#music").css("padding-top", "25vh");
       $("#more-options").css("height", "0");
+      $("#music").css("height", "100vh");
       setTimeout(function() {
         $("#more-options").css({
           "display": "none"
