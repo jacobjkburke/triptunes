@@ -8,6 +8,22 @@ window.addEventListener('load', function (e) {
 	var playlistName = localStorage.getItem("playlist-name");
 	console.log("duration: " + duration);
 
+	var opt = localStorage.getItem("adv");
+
+	var energy;
+	var danceability;
+	var acousticness;
+	var popularity;
+	if (opt == "true") {
+		energy = localStorage.getItem("energy");
+		danceability = localStorage.getItem("danceability");
+		acousticness = localStorage.getItem("acousticness");
+		popularity = localStorage.getItem("popularity");
+	}
+
+	console.log(energy);
+	console.log(popularity);
+
     e.preventDefault();
 
 	console.log(spotifyInput);
@@ -46,6 +62,7 @@ window.addEventListener('load', function (e) {
 			console.log(search);
 			var artistID = search.tracks.items[0].artists[0].id;
 			console.log(artistID);
+			var apiURL;
 			return fetch('/api/recommendations?artistid=' + artistID + '&access_token=' + token)
 			.then(function (response) {
 				return response.json();

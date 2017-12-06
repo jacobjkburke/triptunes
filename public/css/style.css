@@ -17,7 +17,8 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 15;
-    background-color: rgb(238, 238, 238);
+    /*background-color: rgb(238, 238, 238);*/
+    background-color: rgb(24, 24, 24);
     transition: margin-left 1000ms;
     transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.3);
@@ -26,14 +27,33 @@ body {
 }
 
 #begin {
-    background-color: #4d90fe;
-    color: white;
+    background-color: #4dc6fe;
+    color: rgb(255, 255, 255);
     position: absolute;
-    bottom: 110px;
+    top: 300px;
     width: 200px;
     height: 45px;
     left: 50%;
     transform: translateX(-100px);
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+#blurb-head {
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Raleway', sans-serif !important;
+    color: rgb(223, 223, 223);
+}
+
+#blurb-content {
+    width: 60vw;
+    margin-left: 20vw;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 500;
+    color: rgb(223, 223, 223);
 }
 
 .header {
@@ -51,6 +71,13 @@ body {
 }
 
 #title {
+    font-size: 32px;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 300;
+    color: #4dc6fe;
+}
+
+#title--jacob {
     text-shadow: 5px 1px 3px rgba(29,185,84,1);
     font-weight: normal;
     font-style: oblique;
@@ -85,23 +112,58 @@ body {
 }
 
 .feature {
-    background-color: rgb(245, 245, 245);
-    box-shadow: 0px 5px 5px 1px rgb(207, 207, 207);
+    background-color: rgb(54, 54, 54);
     border-radius: 2px;
 }
 
 #description-wrapper {
-    margin: 0 -20px 0 -20px;
+    margin: 100px -20px 0 -20px;
     width: 110vw;
+    background: linear-gradient(rgb(32, 32, 32), rgb(24, 24, 24));
+    height: 425px;
 }
 
 #desrciption {
-    font-size: 18px;
-    width: 70vw;
-    margin-left: 15%;
-    padding-top: 30px;
-    padding-bottom: 40px;
-    height: 350px;
+    position: absolute;
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 40px !important;
+    width: 100vw;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#t2, #t3, #t4, #t5, #t6 {
+    margin-top: -55px;
+}
+
+.d-el {
+    font-family: 'Raleway', sans-serif !important;
+    color: rgb(190, 190, 190);
+    opacity: 0;
+    transition: opacity 1000ms;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: italic;
+    white-space: nowrap;
+    text-overflow: hidden;
+}
+
+.d-ed {
+    font-family: 'Raleway', sans-serif !important;
+    text-align: center;
+    color: rgb(223, 223, 223);
+    margin-top: 120px;
+    font-weight: 700;
+    width: 100vw;
+}
+
+b {
+    font-weight: 700;
+    color: #4dc6fe;
+}
+
+p > h1 {
+    font-family: 'Raleway', sans-serif !important;
 }
 
 #feature-maps {
@@ -117,12 +179,13 @@ body {
 }
 
 .feature-description {
-    border-top: 2px solid rgb(189, 189, 189);
+    border-top: 2px solid rgb(223, 223, 223);
     width: 80%;
     margin-left: 10%;
     font-size: 22px;
-    color: rgb(99, 99, 99);
+    color: rgb(223, 223, 223);
     padding-top: 15px;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 #spotify-logo {
@@ -234,15 +297,15 @@ ul {
 
 #music {
     padding-top: 25vh;
-
     width: 100vw;
     height: 100vh;
     position: absolute;
     z-index: -10;
-    background-color: black;
+    background-color: rgb(24, 24, 24); 
     color: white;
     top: 0;
     left: 0;
+    transition: padding-top 400ms;
 }
 
 .music-search {
@@ -267,6 +330,19 @@ ul {
 #music-header p {
     font-size: 18px;
 }
+
+#music-head, #music-sub {
+    font-family: "proxima-nova" ,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+#music-head {
+    font-weight: 700;
+}
+
+#music-sub {
+    font-weight: 700;
+}
+
 
 .btn-full {
     border-top-left-radius: 30px;
@@ -310,6 +386,39 @@ ul {
     background-color: rgb(55, 167, 55);
 }
 
+#more-options-btn {
+    color: rgb(55, 167, 55);
+    font-family: "proxima-nova" ,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+#more-options {
+    width: 200px;
+    margin-left: 50vw;
+    transform: translateX(-120px) scale(1.75, 1.75);
+    margin-top: 130px;
+    background-color: rgb(29, 29, 29); 
+    padding: 20px 10px 40px 10px;
+    border-radius: 30px;
+    height: 0px;
+    display: none;
+    overflow: hidden;
+    transition: height 350ms;
+}
+
+.spacer {
+    width: 100vw;
+    height: 30px;
+}
+
+#more-options label {
+    font-family: "proxima-nova" ,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+
 #playlist-name {
     display: none;
     opacity: 0;
@@ -335,7 +444,7 @@ ul {
 
 #playlist-name-box {
     border: 1px solid rgb(32, 32, 32);
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(24, 24, 24); 
     border-radius: 15px;
     height: 200px;
     width: 275px;
@@ -374,20 +483,20 @@ ul {
 
 #selector-ul {
     height: 5px; 
+    background-color: #4dc6fe;
     position: absolute;
     bottom: 0;
     left: 33px;
-    background-color: #4d90fe;
     width: 55px;
     transition: left 300ms;
 }
 
 .nav-selected {
-    color: #4d90fe !important;
+    color: #4dc6fe !important;
 }
 
 .onmusic {
-    color: white;
+    color: rgb(223, 223, 223);
 }
 
 .onmusic:hover {
@@ -397,10 +506,6 @@ ul {
 @media (min-width: 1024px) {
     #feature-maps {
         margin-right: 10%;
-    }
-    #description {
-        font-weight: 500;
-        font-size: 30px;
     }
 }
 
@@ -433,16 +538,15 @@ ul {
     }
 
     #description-wrapper {
-        margin-top: 180px;
-        padding-bottom: 180px;
+        height: 100vh;
+        margin-top: 150px;
     }
 
     #begin {
         transform: scale(1.75, 1.75) translateX(-58px);
         box-shadow: 0px 5px 5px 1px rgba(1, 1, 1, 0.274);
-        margin-bottom: 15px;
-        position: fixed;
         transition: opacity 500ms;
+        margin-top: 25px;
     }
 
     #search-form {
@@ -468,6 +572,12 @@ ul {
         text-overflow: ellipsis;
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    #blurb-content {
+        font-size: 20px;
+        width: 90vw;
+        margin-left: 5vw;
     }
 
     #mode-selector {
@@ -501,29 +611,28 @@ ul {
     #playlist-name-box {
         transform: scale(1.45, 1.45);
     }
+    .d-el {
+        font-size: 36px;
+    }
     
 }
 
-@media (max-width: 600px) {
-    #description-wrapper {
-        margin-top: 240px;
+@media (max-width: 610px) {
+    .d-el {
+        font-size: 28px;
     }
 }
 
-@media (max-width: 525px) {
-    #description-wrapper {
-        margin-top: 300px;
+@media (max-width: 500px) {
+    .d-el {
+        font-size: 24px;
     }
-}
 
-@media (max-width: 475px) {
-    #description-wrapper {
-        margin-top: 375px;
+    .d-ed {
+        font-size: 18px;
     }
-}
 
-@media (max-width: 425px) {
-    #description-wrapper {
-        margin-top: 420px;
+    #begin {
+        transform: scale(1.25, 1.25) translateX(-80px);;
     }
 }
