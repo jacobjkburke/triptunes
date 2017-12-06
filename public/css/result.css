@@ -78,7 +78,7 @@ iframe {
     background-color: #cccecf;
     border: 0px;
     border-radius: 30px;
-    transform: translateX(-75px);
+    transform: translateX(-100px);
     transition: background-color 200ms;
     bottom: 75px;
     font-weight: 700;
@@ -109,6 +109,10 @@ iframe {
 #logo img {
     height: 45px;
     width: 45px;
+}
+
+#logo, #title {
+    cursor: pointer;
 }
 
 #loading {

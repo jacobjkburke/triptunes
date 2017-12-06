@@ -21,8 +21,7 @@ window.addEventListener('load', function (e) {
 		popularity = localStorage.getItem("popularity");
 	}
 
-	console.log(energy);
-	console.log(popularity);
+
 
     e.preventDefault();
 
